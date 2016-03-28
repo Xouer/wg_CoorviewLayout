@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.wangg.wg_coorviewlayout.CustomLayout.ReLinearLayoutManager xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+<!--由于RecycleView中没有滑动最新位置的问题没有解决，采用ListView进行布局 -->
+<!--    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dialogue_reccycleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:cacheColorHint="#0000">
+    </android.support.v7.widget.RecyclerView>
+-->
+    <ListView
+        android:id="@+id/dialog_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:cacheColorHint="#0000"
+        android:divider="#00000000"
+        android:dividerHeight="0dp"
+        android:scrollbars="none"
+        android:descendantFocusability="afterDescendants">
+    </ListView>
+
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#006607">
+
+        <EditText
+            android:id="@+id/text_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+
+
+</com.wangg.wg_coorviewlayout.CustomLayout.ReLinearLayoutManager>
