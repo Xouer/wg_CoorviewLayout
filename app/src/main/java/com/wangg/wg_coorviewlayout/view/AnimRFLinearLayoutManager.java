@@ -5,7 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-import com.wangg.wg_coorviewlayout.test.OverScrollListener;
+import com.wangg.wg_coorviewlayout.adapter.OverScrollListener;
 
 
 /**

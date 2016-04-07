@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.adapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;

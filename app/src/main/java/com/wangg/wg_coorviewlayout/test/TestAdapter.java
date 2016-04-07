@@ -14,6 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.wangg.wg_coorviewlayout.R;
+import com.wangg.wg_coorviewlayout.adapter.DividerGridItemDecoration;
+import com.wangg.wg_coorviewlayout.adapter.DividerItemDecoration;
+import com.wangg.wg_coorviewlayout.adapter.OverScrollListener;
 import com.wangg.wg_coorviewlayout.view.AnimRFLinearLayoutManager;
 import com.wangg.wg_coorviewlayout.view.AnimRFStaggeredGridLayoutManager;
 

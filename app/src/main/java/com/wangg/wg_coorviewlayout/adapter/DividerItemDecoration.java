@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.adapter;
 
 /*
  * Copyright (C) 2014 The Android Open Source Project

@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.adapter;
 
 import android.content.Context;
 import android.content.res.TypedArray;

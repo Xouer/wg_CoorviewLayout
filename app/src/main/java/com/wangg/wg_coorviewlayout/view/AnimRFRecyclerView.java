@@ -20,9 +20,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.wangg.wg_coorviewlayout.test.DividerGridItemDecoration;
-import com.wangg.wg_coorviewlayout.test.DividerItemDecoration;
-import com.wangg.wg_coorviewlayout.test.OverScrollListener;
+import com.wangg.wg_coorviewlayout.adapter.DividerGridItemDecoration;
+import com.wangg.wg_coorviewlayout.adapter.DividerItemDecoration;
+import com.wangg.wg_coorviewlayout.adapter.OverScrollListener;
 
 import java.util.ArrayList;
 

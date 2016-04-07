@@ -9,8 +9,8 @@ import android.support.v7.widget.Toolbar;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.wangg.wg_coorviewlayout.R;
-import com.wangg.wg_coorviewlayout.test.FragmentAdapter;
-import com.wangg.wg_coorviewlayout.test.ListFragment;
+import com.wangg.wg_coorviewlayout.adapter.FragmentAdapter;
+import com.wangg.wg_coorviewlayout.adapter.ListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +28,7 @@ public class TianGouPictureActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
         setContentView(R.layout.layout_tiangoupicture_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
         initViewPager();
-
     }
 
     private void initViewPager() {

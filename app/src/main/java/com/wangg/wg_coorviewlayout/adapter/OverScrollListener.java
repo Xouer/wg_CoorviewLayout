@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.adapter;
 
 /**
  * Created by shichaohui on 2015/8/3 0003.

@@ -10,18 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:fitsSystemWindows="true"
-        android:layout_height="wrap_content"
-        >
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout"
@@ -29,7 +18,8 @@
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@android:color/transparent"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:tabMode="scrollable">
+            app:tabMode="scrollable"
+            android:fillViewport="false">
         </android.support.design.widget.TabLayout>
 
 
