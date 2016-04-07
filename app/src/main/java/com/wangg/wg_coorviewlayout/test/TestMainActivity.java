@@ -1,38 +1,17 @@
 package com.wangg.wg_coorviewlayout.test;
 
-import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.wangg.wg_coorviewlayout.api.APIService;
 import com.wangg.wg_coorviewlayout.R;
-import com.wangg.wg_coorviewlayout.WeatherAPI;
-import com.wangg.wg_coorviewlayout.api.TULING;
-import com.wangg.wg_coorviewlayout.api.TuangouImageBean;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observer;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by Administrator on 2016/3/15.
@@ -46,7 +25,7 @@ public class TestMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fresco.initialize(this);
-        setContentView(R.layout.test_activity_main);
+        setContentView(R.layout.layout_tiangoupicture_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initViewPager();

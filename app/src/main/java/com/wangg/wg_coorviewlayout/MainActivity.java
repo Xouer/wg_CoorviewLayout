@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.wangg.wg_coorviewlayout.layout.TianGouPictureActivity;
 import com.wangg.wg_coorviewlayout.layout.Tuling_dialogueActivity;
 
 import retrofit2.Call;
@@ -38,13 +39,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initview();
     }
 
     private void initview() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setNavigationIcon(R.drawable.ic_favorite_24dp);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar1);
+//        mToolbar.setNavigationIcon(R.drawable.ic_favorite_24dp);
         mToolbar.setTitle("项目集合");
 
         drawer_layout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-
+//
         setupDrawerContent(navigationView);  //navigationview跳转
     }
 
@@ -67,14 +67,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.nav_city:
+                            case R.id.nav_robot:
                                 Intent intent = new Intent();
                                 intent.setClass(MainActivity.this,Tuling_dialogueActivity.class);
                                 startActivity(intent);
                                 break;
-//                            case R.id.navigation_item_example:
-//                                switchToExample();
-//                                break;
+                            case R.id.nav_picture:
+                                Intent intent_picture = new Intent();
+                                intent_picture.setClass(MainActivity.this,TianGouPictureActivity.class);
+                                startActivity(intent_picture);
+                                break;
 //                            case R.id.navigation_item_blog:
 //                                switchToBlog();
 //                                break;

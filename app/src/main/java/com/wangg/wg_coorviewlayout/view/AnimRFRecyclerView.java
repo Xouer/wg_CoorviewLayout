@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -20,6 +20,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.wangg.wg_coorviewlayout.test.DividerGridItemDecoration;
+import com.wangg.wg_coorviewlayout.test.DividerItemDecoration;
+import com.wangg.wg_coorviewlayout.test.OverScrollListener;
 
 import java.util.ArrayList;
 

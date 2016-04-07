@@ -1,30 +1,32 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.view;
 
 import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+
+import com.wangg.wg_coorviewlayout.test.OverScrollListener;
 
 
 /**
  * Created by shichaohui on 2015/8/3 0003.
  * <br/>
- * 增加了{@link OverScrollListener}的GridLayoutManage
+ * 增加了{@link OverScrollListener}的LinearLayoutManager
  */
-public class AnimRFGridLayoutManager extends GridLayoutManager {
+public class AnimRFLinearLayoutManager extends LinearLayoutManager {
 
     private OverScrollListener mListener;
 
-    public AnimRFGridLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public AnimRFLinearLayoutManager(Context context) {
+        super(context);
+    }
+
+    public AnimRFLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
+        super(context, orientation, reverseLayout);
+    }
+
+    public AnimRFLinearLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-    }
-
-    public AnimRFGridLayoutManager(Context context, int spanCount) {
-        super(context, spanCount);
-    }
-
-    public AnimRFGridLayoutManager(Context context, int spanCount, int orientation, boolean reverseLayout) {
-        super(context, spanCount, orientation, reverseLayout);
     }
 
     @Override

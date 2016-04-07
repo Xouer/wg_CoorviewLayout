@@ -3,20 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_city"
-            android:icon="@drawable/ic_location_on_24dp"
-            android:title="选择城市"/>
+            android:id="@+id/nav_robot"
+            android:title="智能机器人"/>
     </group>
 
     <item android:title="@string/app_name">
         <menu>
             <item
-                android:id="@+id/nav_set"
-                android:icon="@drawable/ic_settings_24dp"
-                android:title="设置"/>
+                android:id="@+id/nav_picture"
+                android:title="美女图片"/>
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_about"
                 android:title="关于"/>
         </menu>
     </item>

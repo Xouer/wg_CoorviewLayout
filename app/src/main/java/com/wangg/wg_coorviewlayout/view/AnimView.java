@@ -1,4 +1,4 @@
-package com.wangg.wg_coorviewlayout.test;
+package com.wangg.wg_coorviewlayout.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -1,38 +1,24 @@
 package com.wangg.wg_coorviewlayout.test;
 
 import android.content.Context;
-import android.graphics.drawable.Animatable;
-import android.net.Uri;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.facebook.common.logging.FLog;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.controller.ControllerListener;
-import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.image.QualityInfo;
 import com.wangg.wg_coorviewlayout.R;
+import com.wangg.wg_coorviewlayout.view.AnimRFLinearLayoutManager;
+import com.wangg.wg_coorviewlayout.view.AnimRFStaggeredGridLayoutManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2016/3/23.

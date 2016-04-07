@@ -1,7 +1,5 @@
 package com.wangg.wg_coorviewlayout.api;
 
-import com.wangg.wg_coorviewlayout.WeatherAPI;
-
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -30,14 +28,5 @@ public interface APIService {
                                            @Query("id") int id);
 
     /**********************以下是测试api接口************************************/
-//    @POST("user")
-//    Call<User> login();
-//}
-//public void doSomething(){
-//    new Retrofit.Builder().baseUrl().addConverterFactory().build();
 
-    String HOST = "https://api.heweather.com/x3/";
-
-    @GET("weather")
-    Observable<WeatherAPI> mWeatherAPI(@Query("city") String cityid, @Query("key") String key);
 }

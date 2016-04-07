@@ -2,19 +2,18 @@ package com.wangg.wg_coorviewlayout.test;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.wangg.wg_coorviewlayout.R;
 import com.wangg.wg_coorviewlayout.api.APIService;
 import com.wangg.wg_coorviewlayout.api.TuangouImageBean;
 import com.wangg.wg_coorviewlayout.layout.TianGouLayoutAdapter;
+import com.wangg.wg_coorviewlayout.view.AnimRFRecyclerView;
+import com.wangg.wg_coorviewlayout.view.AnimRFStaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +95,7 @@ public class ListFragment extends Fragment {
                 @Override
                 public void run() {
                     if (isRefresh) {
+
                         initData();
                         refreshComplate();
                         animRFRecyclerView.refreshComplate();
@@ -123,7 +123,7 @@ public class ListFragment extends Fragment {
     }
 
     private void initData() {
-
+        pageNumber = 1;
         Retrofit retrofit = new Retrofit.Builder().baseUrl(APIService.IMAGER_HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
