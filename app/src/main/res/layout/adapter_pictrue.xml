@@ -25,6 +25,7 @@
         app:progressBarImage="@drawable/ic_loading"
         app:progressBarImageScaleType="centerInside"
         app:actualImageScaleType="fitCenter"
+        app:failureImage="@drawable/umeng_fb_action_replay"
         />
 
     </android.support.v7.widget.CardView>

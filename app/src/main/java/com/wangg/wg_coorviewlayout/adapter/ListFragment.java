@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.wangg.wg_coorviewlayout.R;
 import com.wangg.wg_coorviewlayout.api.APIService;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Subscriber;
@@ -35,6 +37,8 @@ public class ListFragment extends Fragment {
     private TianGouLayoutAdapter tianGouLayoutAdapter;
     private AnimRFRecyclerView animRFRecyclerView;
     private Handler mHandler = new Handler();
+    private int pictrueNumber;   // 图片的总数量
+    private int pictrueLoadNumber = 20;
 
     public ListFragment(int pageNumber ,int gallertclassID) {
         this.pageNumber = pageNumber;
@@ -100,6 +104,7 @@ public class ListFragment extends Fragment {
                         refreshComplate();
                         animRFRecyclerView.refreshComplate();
                     } else {
+
                         initData2();
                         loadMoreComplate();
                         animRFRecyclerView.loadMoreComplate();
@@ -129,7 +134,7 @@ public class ListFragment extends Fragment {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
 
         final APIService apiService = retrofit.create(APIService.class);
-        apiService.imagelist(pageNumber, 20, gallertclassID).subscribeOn(Schedulers.newThread())
+        apiService.imagelist(pageNumber, pictrueLoadNumber, gallertclassID).subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<TuangouImageBean>() {
                     @Override
@@ -144,7 +149,9 @@ public class ListFragment extends Fragment {
 
                     @Override
                     public void onNext(TuangouImageBean s) {
-                        for(int i = 0; i < 20; i++){
+                        Log.e("wg_log", "total:" + s.total);
+                        pictrueNumber = s.total;
+                        for(int i = 0; i < pictrueLoadNumber; i++){
                             message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
                         }
 //                        Log.e("wg_log", "message:" + message_picture.toString());
@@ -155,6 +162,8 @@ public class ListFragment extends Fragment {
 
     private void initData2() {
         pageNumber ++ ;
+
+        Log.e("wg_log", "pageNumber:"+  pageNumber);
         Retrofit retrofit = new Retrofit.Builder().baseUrl(APIService.IMAGER_HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).build();
@@ -175,11 +184,19 @@ public class ListFragment extends Fragment {
 
                     @Override
                     public void onNext(TuangouImageBean s) {
-                        for(int i = 0; i < 20; i++){
-                            message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+                        pictrueNumber -= pictrueLoadNumber;
+                        if(pictrueNumber >= pictrueLoadNumber) {
+                            for (int i = 0; i < pictrueLoadNumber; i++) {
+                                message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+                            }
+                        }else if(pictrueNumber < pictrueLoadNumber && pictrueNumber > 0){
+                            for (int i = 0; i < pictrueNumber; i++) {
+                                message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+                            }
+                        }else{
+                            Toast.makeText(getContext(), "已经是最后一页了", Toast.LENGTH_SHORT).show();
                         }
-//                        Log.e("wg_log", "message:" + message_picture.toString());
-//                        tianGouLayoutAdapter.notifyDataSetChanged();
+                        Log.e("wg_log", "pictrueNumber:" + pictrueNumber);
                         animRFRecyclerView.getAdapter().notifyDataSetChanged();
                     }
                 });

@@ -62,5 +62,4 @@ public class TianGouPictureActivity extends AppCompatActivity{
         //给TabLayout设置适配器
         mTabLayout.setTabsFromPagerAdapter(mFragmentAdapteradapter);
     }
-
 }

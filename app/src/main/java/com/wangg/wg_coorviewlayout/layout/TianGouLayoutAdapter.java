@@ -60,6 +60,7 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
             }
         }
 
+    //监听加载过程
     ControllerListener controllerListener = new BaseControllerListener<ImageInfo>(){
 
         @Override
@@ -85,13 +86,15 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
 
         @Override
         public void onFailure(String id, Throwable throwable) {
+            super.onFailure(id, throwable);
+            Log.e("wg_log", "图片加载失败：" + id);
         }
     };
 
     DraweeController controller = Fresco.newDraweeControllerBuilder()
             .setUri(Uri.parse(url))
             .setControllerListener(controllerListener)
-            .setTapToRetryEnabled(true)
+            .setTapToRetryEnabled(true)   //点击重新加载图片
             .build();
 
     holder.mSimpleDraweeView.setController(controller);

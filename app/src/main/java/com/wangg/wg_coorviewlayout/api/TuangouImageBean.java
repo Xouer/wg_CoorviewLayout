@@ -16,6 +16,9 @@ public class TuangouImageBean implements Serializable{
     public List<tngou> mTngou
             = new ArrayList<>();
 
+    @SerializedName("total")
+    public int total;
+
     public class tngou implements Serializable{
         @SerializedName("id") public long id;
         @SerializedName("title") public String title;
