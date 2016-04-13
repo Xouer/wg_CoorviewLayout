@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.wangg.wg_coorviewlayout.R;
 import com.wangg.wg_coorviewlayout.api.APIService;
 import com.wangg.wg_coorviewlayout.api.TuangouImageBean;
+import com.wangg.wg_coorviewlayout.bean.PictrueMessageContentBean;
 import com.wangg.wg_coorviewlayout.layout.TianGouLayoutAdapter;
 import com.wangg.wg_coorviewlayout.view.AnimRFRecyclerView;
 import com.wangg.wg_coorviewlayout.view.AnimRFStaggeredGridLayoutManager;
@@ -33,7 +34,7 @@ public class ListFragment extends Fragment {
     private int pageNumber = 1;
     //类别ID
     private int gallertclassID;
-    private List<String> message_picture;
+    private List<PictrueMessageContentBean> message_picture;
     private TianGouLayoutAdapter tianGouLayoutAdapter;
     private AnimRFRecyclerView animRFRecyclerView;
     private Handler mHandler = new Handler();
@@ -62,7 +63,7 @@ public class ListFragment extends Fragment {
         animRFRecyclerView.setLayoutManager(new AnimRFStaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));
 //        animRFRecyclerView.addFootView(footerView);
-        message_picture = new ArrayList<String>();
+        message_picture = new ArrayList<PictrueMessageContentBean>();
         initData();
 
         tianGouLayoutAdapter = new TianGouLayoutAdapter(message_picture);
@@ -152,7 +153,9 @@ public class ListFragment extends Fragment {
                         Log.e("wg_log", "total:" + s.total);
                         pictrueNumber = s.total;
                         for(int i = 0; i < pictrueLoadNumber; i++){
-                            message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+
+                            message_picture.add(new PictrueMessageContentBean(
+                                    APIService.IMAGET_LOOK + s.mTngou.get(i).img, s.mTngou.get(i).id));
                         }
 //                        Log.e("wg_log", "message:" + message_picture.toString());
                         animRFRecyclerView.getAdapter().notifyDataSetChanged();
@@ -187,11 +190,13 @@ public class ListFragment extends Fragment {
                         pictrueNumber -= pictrueLoadNumber;
                         if(pictrueNumber >= pictrueLoadNumber) {
                             for (int i = 0; i < pictrueLoadNumber; i++) {
-                                message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+                                message_picture.add(new PictrueMessageContentBean(
+                                        APIService.IMAGET_LOOK + s.mTngou.get(i).img, s.mTngou.get(i).id));
                             }
                         }else if(pictrueNumber < pictrueLoadNumber && pictrueNumber > 0){
                             for (int i = 0; i < pictrueNumber; i++) {
-                                message_picture.add(APIService.IMAGET_LOOK + s.mTngou.get(i).img);
+                                message_picture.add(new PictrueMessageContentBean(
+                                        APIService.IMAGET_LOOK + s.mTngou.get(i).img, s.mTngou.get(i).id));
                             }
                         }else{
                             Toast.makeText(getContext(), "已经是最后一页了", Toast.LENGTH_SHORT).show();

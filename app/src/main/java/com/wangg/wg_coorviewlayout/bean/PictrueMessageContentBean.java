@@ -6,9 +6,11 @@ package com.wangg.wg_coorviewlayout.bean;
 public class PictrueMessageContentBean {
 
     private String PictrueImage;
+    private long ID;
 
-    public PictrueMessageContentBean(String pictrueimgge) {
+    public PictrueMessageContentBean(String pictrueimgge, long ID) {
         this.PictrueImage = pictrueimgge;
+        this.ID = ID;
     }
 
     public String getPictrueImage() {
@@ -17,5 +19,13 @@ public class PictrueMessageContentBean {
 
     public void setPictrueImage(String pictrueImage) {
         PictrueImage = pictrueImage;
+    }
+
+    public long getID() {
+        return ID;
+    }
+
+    public void setID(long ID) {
+        this.ID = ID;
     }
 }

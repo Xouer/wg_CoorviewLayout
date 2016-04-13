@@ -30,11 +30,11 @@ import java.util.Map;
  */
 public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdapter.MyViewHolder>{
 
-    private  List<String> ListData;
+    private  List<PictrueMessageContentBean> ListData;
     Map<String,Integer> heightMap = new HashMap<>();
     static Map<String,Integer> widthMap = new HashMap<>();
 
-    public TianGouLayoutAdapter(List<String> listData){
+    public TianGouLayoutAdapter(List<PictrueMessageContentBean> listData){
         this.ListData = listData;
     }
 
@@ -49,7 +49,8 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
     @Override
     public void onBindViewHolder(final TianGouLayoutAdapter.MyViewHolder holder, int position) {
 //        Log.e("wg_log", "Listdata:" + ListData.get(position));
-        final String url = ListData.get(position);
+        final String url = ListData.get(position).getPictrueImage();
+        final long imageId = ListData.get(position).getID();
         if(heightMap.containsKey(url)){
             int height = heightMap.get(url);
             FLog.i("kaede", url+ "'s height = " + height);
@@ -71,7 +72,6 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
 
             QualityInfo qualityInfo = imageInfo.getQualityInfo();
             if (qualityInfo.isOfGoodEnoughQuality()){
-                Log.e("wg_log", "width:" + imageInfo.getWidth() + "height" + imageInfo.getHeight());
                 int heightTarget = (int) getTargetHeight(imageInfo.getWidth(),imageInfo.getHeight(),holder.itemView,url);
                 FLog.i("kaede", "heightTarget = " + heightTarget);
                 if (heightTarget<=0)return;
@@ -101,7 +101,7 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.e("wg_log", "ID值=" + imageId );
             }
         });
     }
