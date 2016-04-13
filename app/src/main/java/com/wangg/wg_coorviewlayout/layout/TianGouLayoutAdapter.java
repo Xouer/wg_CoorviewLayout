@@ -102,7 +102,7 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                KLog.i("TianGouLayoutAdapter", "ID值=" + imageId);
+                KLog.e("TianGouLayoutAdapter", "ID值=" + imageId);
 //                Log.e("wg_log", "ID值=" + imageId );
             }
         });
