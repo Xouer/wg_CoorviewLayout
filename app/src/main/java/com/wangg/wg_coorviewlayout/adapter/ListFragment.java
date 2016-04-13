@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.socks.library.KLog;
 import com.wangg.wg_coorviewlayout.R;
 import com.wangg.wg_coorviewlayout.api.APIService;
 import com.wangg.wg_coorviewlayout.api.TuangouImageBean;
@@ -150,6 +151,7 @@ public class ListFragment extends Fragment {
 
                     @Override
                     public void onNext(TuangouImageBean s) {
+
                         Log.e("wg_log", "total:" + s.total);
                         pictrueNumber = s.total;
                         for(int i = 0; i < pictrueLoadNumber; i++){

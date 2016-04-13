@@ -18,6 +18,7 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
+import com.socks.library.KLog;
 import com.wangg.wg_coorviewlayout.R;
 import com.wangg.wg_coorviewlayout.bean.PictrueMessageContentBean;
 
@@ -101,7 +102,8 @@ public class TianGouLayoutAdapter extends RecyclerView.Adapter<TianGouLayoutAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("wg_log", "ID值=" + imageId );
+                KLog.i("TianGouLayoutAdapter", "ID值=" + imageId);
+//                Log.e("wg_log", "ID值=" + imageId );
             }
         });
     }
